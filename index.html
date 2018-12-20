@@ -1,0 +1,317 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/robot-lung.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+    <style>
+      img { border: 0 !important; box-shadow: none !important; }
+
+      .reveal pre code {
+        transform: translateX(-15vw);
+        font-size: 2vw;
+        line-height: 2.5vw;
+        min-width: 80vw;
+        transform: translateX(-6vw);
+        font-size: 2.5vw;
+        line-height: 3vw;
+        min-width: 95vw;
+        max-width: 90vw;
+      }
+    </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section class="stack present">
+					<section class="present" style="top: 150px; display: block;">
+						<h1 id="toc_0">🦖</h1>
+						<h3 id="reveal-hugo">JavaScript para dinossauros</h3>
+						<p>Uma viagem no tempo</p>
+						<p>~ github/fb/ig/twitter: <a href="https://github.com/jaonze">@jaonze</a> ~</p>
+					</section>
+				</section>
+
+        <section class="stack present">
+          <section>
+            <h3>Prelúdio</h3>
+						<img src="assets/chrome_dinosaur.gif" />
+          </section>
+
+          <section>
+            <h3>A internet</h3>
+            <img src="assets/client-server-model.png" />
+          </section>
+
+          <section>
+            <img src="assets/client-server-interaction.png" />
+          </section>
+
+          <section>
+            <h3>A Triforce</h3>
+            <img src="assets/triforce-html-css-js.png" />
+					</section>
+					
+					<section>
+						<iframe src="https://codesandbox.io/embed/x7pmq32j6q"></iframe>
+					</section>
+        </section>
+
+        <section class="stack present">
+          <section>
+            <h3>Bibliotecas</h3>
+						<img width=600" src="assets/package.png" style="border: 0;" />
+          </section>
+
+					<section>
+						<h4>moment.js</h4>
+						<img width=600" src="assets/moment-print.png" style="border: 0;" />
+					</section>
+
+					<section>
+						<h4>Incluir em uma página</h4>
+						<img width=600" src="assets/include-script.png" style="border: 0;" />
+					</section>
+				</section>
+
+        <section class="stack present">
+          <section>
+            <h3>node.js <span style="color: red;">❤️</span> npm</h3>
+          </section>
+
+					<section>
+            <h4>Primeira talk em 2009</h4>
+						<img width=600" src="assets/js_conf_2009.png" style="border: 0;" />
+					</section>
+
+					<section>
+						<h4>internamente</h4>
+						<img src="assets/node_v8-1.png" />
+					</section>
+
+					<section>
+						<h4>features</h4>
+            <ul>
+              <li>Server-side JavaScript</li>
+              <li>Built on Google's V8</li>
+              <li>Evented, non-blocking I/O</li>
+              <li>CommonJS module system</li>
+            </ul>
+					</section>
+
+					<section>
+						<h4>Module System...</h4>
+						<img src="https://ih0.redbubble.net/image.453128017.9820/flat,1000x1000,075,f.jpg" width="500" style="border: 0;"/>
+					</section>
+
+					<section>
+						<h4>Kill them all with require()</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+var http = require('http');
+
+http.createServer(function (req, res) {
+	res.writeHead(200, {'Content-Type': 'text/plain'});
+	res.end('Hello World!');
+}).listen(8080);
+						</code></pre>
+					</section>
+
+					<section>
+						<h4>Gerenciador de pacotes</h4>
+						<img src="assets/pkg-manager.png" style="border: 0;"/>
+						<p class="fragment">
+							<span class="fragment">
+							npm, bower, yarn...
+							</span>
+						</p>
+					</section>
+
+					<section>
+						<img width=600" src="assets/npm-logo.jpg" style="border: 0;" />
+					</section>
+
+					<section>
+						<h4>node package manager</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+npm install jquery
+						</code></pre>
+					</section>
+				</section>
+
+        <section class="stack present">
+          <section>
+						<h3>Bundler</h3>
+						<img width="600" src="https://parceljs.org/assets/parcel-front.png" style="bordere: 0;" />
+
+						<p class="fragment">
+							<span class="fragment">
+							browserify, webpack, rollup, parcel...
+							</span>
+						</p>
+					</section>
+
+					<section>
+						<h3>Sem bundler</h3>
+						<pre><code class="hljs" data-trim contenteditable>
+// index.html
+<script src="jquery.min.js"></script>  
+<script src="jquery.some.plugin.js"></script>  
+<script src="main.js"></script>  
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>Com script de build</h3>
+						<pre><code class="hljs" data-trim contenteditable>
+// build-script.js
+var scripts = [  
+		'jquery.min.js',
+		'jquery.some.plugin.js',
+		'main.js'
+].concat().minify().writeTo('bundle.js');
+
+// index.html
+<script src="bundle.js"></script>  
+						</code></pre>
+					</section>
+
+					<section>
+							<h3>Com bundler</h3>
+							<pre><code class="hljs" data-trim contenteditable>
+	// main.js
+	var jQuery = require('jquery');
+	var somePlugin = require('jquery.some.plugin');
+	...
+
+	// index.html
+	<script src="bundle.js"></script> 
+							</code></pre>
+						</section>
+					
+					<section>
+						<h4 style="display: none;">browserify</h4>
+						<img width="600" src="assets/browserify.png" style="border: 0;" />
+					</section>
+
+          <section>
+						<h4 style="display: none;">Webpack</h4>
+						<img width="600" src="assets/what-is-webpack.png" style="border: 0;" />
+          </section>
+				</section>
+
+        <section class="stack present">
+          <section>
+            <h3>Transpiler</h3>
+						<img width=600" src="assets/babel-10.svg" style="border: 0;" />
+          </section>
+
+          <section>
+            <h3>ES6</h3>
+          </section>
+
+          <section>
+            <h4>template strings</h4>
+            <pre><code class="hljs" data-trim contenteditable>
+const name = 'Fulano';
+// transpiled: var name = 'Fulano';
+const helloTemplate = `Hello ${name}!`;
+// transpiled: var template = 'Hello ' + name + '!';
+            </code></pre>
+          </section>
+
+          <section>
+            <h4>Import</h4>
+            <pre><code class="hljs" data-trim contenteditable>
+import { export1 , export2 } from "module-name";
+import { foo , bar } from "module-name";
+            </code></pre>
+          </section>
+
+          <section>
+            <h4>coffescript</h4>
+            <pre><code class="hljs" data-trim contenteditable>
+number   = 42
+opposite = true
+
+number = -42 if opposite
+
+// transpiled:
+
+number = 42;
+opposite = true;
+
+if (opposite) {
+  number = -42;
+}
+            </code></pre>
+          </section>
+				</section>
+
+        <section>
+          <h5>Por que eu preciso de tudo isso?</h5>
+          <p class="fragment">
+            <span class="fragment">
+            aplicações reativas, SPAs, testes, organização...
+            </span>
+          </p>
+        </section>
+
+				<section>
+					<h2>Conclusões</h2>
+				</section>
+
+				<section>
+          <h2>Arigato!! (>^~^)></h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<div class="line top"></div>
+		<div class="line bottom"></div>
+		<div class="line left"></div>
+		<div class="line right"></div>
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				margin: 0.2,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transitionSpeed: 'fast',
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          //{ src: 'lib/js/highlight.pack.js' },
+          //{ src: 'lib/js/reveal-code-focus.js', callback: function() { RevealCodeFocus(); } }
+				]
+			});
+		</script>
+		
+	</body>
+</html>
